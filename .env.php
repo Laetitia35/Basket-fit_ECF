@@ -1,6 +1,6 @@
 <?php
 
         return array (
-          'APP_ENV' => 'dev',
+          'APP_ENV' => 'prod',
         );
         
