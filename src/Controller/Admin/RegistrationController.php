@@ -18,7 +18,7 @@ class RegistrationController extends AbstractController
     #[Route('/admin/creer_un_utilisateur', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, PasswordGenerator $passwordGenerator): Response
     {
-        $generator = $passwordGenerator->generateRandomStrongPassword(10);
+        $generator = $passwordGenerator->generateRandomStrongPassword(20);
 
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);

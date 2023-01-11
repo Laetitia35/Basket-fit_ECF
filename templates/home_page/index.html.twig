@@ -10,7 +10,7 @@
       <h3>Espace personnel</h3>       
     </div>
     <div class="card-body">
-      <h5 class="card-title">Bienvenue <strong>{{ app.user.name }}</strong></h5>
+      <h5 class="card-title">Bienvenue <strong>{{ app.user }}</strong></h5>
         <p>Vérifier les permissions qui vous est accorder selon le contrat de votre franchise passer avec basket-fit </p>
         <a href="{{ path('app_account_password') }}" class="btn btn-warning"> Modifier mon mot de passe</a>
           {% if is_granted('ROLE_ADMIN') %}  
