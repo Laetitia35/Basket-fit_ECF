@@ -43,12 +43,10 @@ class ChangePasswordType extends AbstractType
                     'label' => 'Confirmer votre nouveau mot de passe :',
                     'attr' => [
                         'placeholder' => 'Merci de confirmer la saisie de votre nouveau mot de passe.'
-                    ]
-                    
-                ]
-                
+                    ]   
+                ] 
             ])
-            
+             
             ->add('submit', SubmitType::class, [
                 'label' => "Mettre à jour"
                 

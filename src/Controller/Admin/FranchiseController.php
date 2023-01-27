@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Franchise;
-use App\Entity\User;
 use App\Form\FranchiseType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,18 +28,8 @@ class FranchiseController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) 
         {
-            /**
-             *  //Permission $Permission
-             */
-            //$permissions = $form->get('permissions')->getData();
-            
-            //foreach ($permissions as $permission) {
-                
-                //$franchise->addPermission($permission);   
-            //}
-            
             // uploader une image 
-            $logoFile = $form->get('logo')->getData();
+            $logoFile = $form->get('Logo')->getData();
             if ($logoFile) {
                 $originalFilename = pathinfo($logoFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
@@ -52,13 +41,11 @@ class FranchiseController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-
+                    
                 }
 
                 $franchise->setLogo($newFilename);
             }
-
-
             $entityManager->persist($franchise);
             $entityManager->flush();
             $franchiseEmail = $franchise->getUser()->getEmail();
@@ -112,7 +99,6 @@ class FranchiseController extends AbstractController
                 $franchise->setLogo($newFilename);
             }
 
-
             $entityManager->persist($franchise);
             $entityManager->flush();
         
@@ -138,7 +124,6 @@ class FranchiseController extends AbstractController
         ]);
     }
     
-
     #[Route('/admin/activer_une_franchise/{id}', name: 'app_enable_franchise')]
     public function EnableFranchise(Franchise $franchise, EntityManagerInterface $entityManager)
     {

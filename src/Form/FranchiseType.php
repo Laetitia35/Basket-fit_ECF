@@ -52,11 +52,9 @@ class FranchiseType extends AbstractType
                             'image/gif',
                             'image/png',
                             'application/pdf'
-                        ],
-                        
+                        ],    
                     ])
-                ]
-                
+                ]     
             ])
 
             ->add('Actif', ChoiceType::class, [
@@ -97,8 +95,7 @@ class FranchiseType extends AbstractType
             ])
 
             ->add('submit', SubmitType::class, [
-                'label' => "Valider"
-                
+                'label' => "Valider"    
             ])
         ;
     }

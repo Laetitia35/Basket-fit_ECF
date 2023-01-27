@@ -31,28 +31,6 @@ class StructureController extends AbstractController
         // condition si le formulaire et envoyer et valide alors j'execute le code
         if($form->isSubmitted() && $form->isValid()) {
            
-
-        //on ajoute les permissions accordés à la franchise  
-
-            
-            /** 
-            *  Franchise $franchise
-            */
-            //$franchise = $form->get('Franchise')->getData();
-            //$Permissions = $franchise->getPermissions();
-
-            /*foreach ($Permissions as $Permission) {
-                /**
-                 * @var Permission $permissions
-                 */
-                //$permissionsFranchise = new Permission();
-                //$permissionsFranchise->setPermission($Permissions->setPermission());
-                //$permissionsFranchise->setActif($Permissions->setActif());
-                //$permissionsFranchise->addStructure($form->getData());
-                //$structure->addPermission($permissionsFranchise);
-                
-            //}
-
             $entityManager->persist($structure);
             $entityManager->flush();
             
@@ -86,8 +64,9 @@ class StructureController extends AbstractController
     #[Route('/admin/modifier_une_structure/{id}', name: 'app_update_structure')]
     public function UpdateStructure(Request $request, EntityManagerInterface $entityManager, Structure $structure, MailerInterface $mailer): Response
     {
-
-        $form = $this->createForm(StructureType::class, $structure); //creation du formulaire
+        //creation du formulaire
+        $form = $this->createForm(StructureType::class, $structure); 
+        
         // ecouteur de la requête
         $form->handleRequest($request);
          

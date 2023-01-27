@@ -4,57 +4,71 @@ window.onload = () => {
     let active_franchise = document.querySelectorAll("[id=franchise_active]")
     for (let button of active_franchise) {
         button.addEventListener("click", function() {
-            let xmlhttp = new XMLHttpRequest;
-            //xmlhttp.onReadyStateChange = () => {
-                //verifier la reponse :200
-            //}
-            xmlhttp.open("get",`/admin/activer_une_franchise/${this.dataset.id}`)
-            xmlhttp.send()
+            fetch(`/admin/activer_une_franchise/${this.dataset.id}`)
+                .then(response => {
+                    if (response.ok) {
+                         return response.json();
+                    }   
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                // request was successful
+                // do something with the response data
+                })
+                .catch(error => {
+                console.log('There has been a problem with your fetch operation:', error.message);
+            });
         })
     }
 }
 
-
-// admin activer btn Structure  
+// admin activer btn structure  
 
 window.onload = () => {
-    let active = document.querySelectorAll("[id=structure_active]")
-    for (let button of active) {
+    let active_structure = document.querySelectorAll("[id=structure_active]")
+    for (let button of active_structure) {
         button.addEventListener("click", function() {
-            let xmlhttp = new XMLHttpRequest;
-            //xmlhttp.onReadyStateChange = () => {
-                //verifier la reponse :200
-            //}
-            xmlhttp.open("get",`/admin/activer_une_structure/${this.dataset.id}`)
-            xmlhttp.send()
+            fetch(`/admin/activer_une_structure/${this.dataset.id}`)
+                .then(response => {
+                    if (response.ok) {
+                         return response.json();
+                    }   
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                // request was successful
+                // do something with the response data
+                })
+                .catch(error => {
+                console.log('There has been a problem with your fetch operation:', error.message);
+            });
         })
     }
 }
 
-
-// admin activer btn Permission  
+// admin activer btn permission  
 
 window.onload = () => {
-    let active = document.querySelectorAll("[id=permission_active]")
-    for (let button of active) {
+    let active_permission = document.querySelectorAll("[id=permission_active]")
+    for (let button of active_permission) {
         button.addEventListener("click", function() {
-            let xmlhttp = new XMLHttpRequest;
-            //xmlhttp.onReadyStateChange = () => {
-                //verifier la reponse :200
-            //}
-            xmlhttp.open("get",`/admin/activer_une_permission/${this.dataset.id}`)
-            xmlhttp.send()
+            fetch(`/admin/activer_une_permission/${this.dataset.id}`)
+                .then(response => {
+                    if (response.ok) {
+                         return response.json();
+                    }   
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                // request was successful
+                // do something with the response data
+                })
+                .catch(error => {
+                console.log('There has been a problem with your fetch operation:', error.message);
+            });
         })
     }
 }
-
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
-
 
 // Ajout d'une modale pour supprimer une franchise
 

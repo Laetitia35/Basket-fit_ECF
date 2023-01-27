@@ -5,11 +5,7 @@ namespace App\Entity;
 use App\Repository\FranchiseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
 
 #[ORM\Entity(repositoryClass: FranchiseRepository::class)]
 
@@ -35,7 +31,6 @@ class Franchise
     #[ORM\OneToOne(inversedBy: 'franchise', cascade: ['persist', 'remove'])]
     private ?User $User = null;
  
-   
     #[ORM\OneToMany(mappedBy: 'Franchise', targetEntity: Structure::class)]
     private Collection $structures;
 
@@ -43,12 +38,10 @@ class Franchise
     private Collection $permissions;
 
     public function __construct()
-    {
-       
+    {  
         $this->structures = new ArrayCollection();
         $this->permissions = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -63,7 +56,6 @@ class Franchise
     public function setName(string $Name): self
     {
         $this->Name = $Name;
-
         return $this;
     }
 
@@ -114,8 +106,7 @@ class Franchise
 
         return $this;
     }
-
-    
+ 
     /**
      * @return Collection<int, Structure>
      */
