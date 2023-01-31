@@ -48,9 +48,7 @@ class FranchiseRepository extends ServiceEntityRepository
     {
         $query = $this 
             ->createQueryBuilder('f')
-            ->select('f');
-            
-        
+            ->select('f'); 
        
         if (!empty($search->string)) {
             $query = $query
