@@ -12,12 +12,12 @@ window.onload = () => {
                     } 
                     throw new Error('request failed.');
                 })
-                //.then(data => {
+                .then(data => {
                     // request was successful
                     // do something with the response data
-                    
                 
-                //})
+                    alert(data.message="La franchise a bien été modifier")
+                })
                 .catch(error => {
                     console.log('There has been a problem with your fetch operation:', error.message);
                 });
@@ -42,6 +42,8 @@ window.onload = () => {
                 //.then(data => {
                     // request was successful
                     // do something with the response data
+                    
+                    alert(data.message="La structure a bien été modifier")
                 
                 //})
                 .catch(error => {
@@ -66,12 +68,13 @@ window.onload = () => {
                     } 
                     throw new Error('request failed.');
                 })
-                //.then(data => {
+                .then(data => {
                     // request was successful
                     // do something with the response data
+        
+                    alert(data.message="La permission a bien été modifier")
                     
-                
-                //})
+                })
                 .catch(error => {
                     console.log('There has been a problem with your fetch operation:', error.message);
                 });
