@@ -15,8 +15,7 @@ window.onload = () => {
                 .then(data => {
                     // request was successful
                     // do something with the response data
-                
-                    alert(data.message="La franchise a bien été modifier")
+                    alert(data.message="L'état de la franchise a bien été modifier")
                 })
                 .catch(error => {
                     console.log('There has been a problem with your fetch operation:', error.message);
@@ -39,20 +38,18 @@ window.onload = () => {
                     } 
                     throw new Error('request failed.');
                 })
-                //.then(data => {
+                .then(data => {
                     // request was successful
-                    // do something with the response data
-                    
+                    // do something with the response data  
                     alert(data.message="La structure a bien été modifier")
                 
-                //})
+                })
                 .catch(error => {
                     console.log('There has been a problem with your fetch operation:', error.message);
                 });
         });
     }
 }
-
 
 // admin activer btn permission
 
@@ -71,8 +68,7 @@ window.onload = () => {
                 .then(data => {
                     // request was successful
                     // do something with the response data
-        
-                    alert(data.message="La permission a bien été modifier")
+                        alert(data.message="La permission a bien été modifier")    
                     
                 })
                 .catch(error => {
@@ -81,7 +77,6 @@ window.onload = () => {
         });
     }
 }
-
 
 // Ajout d'une modale pour supprimer une franchise
 

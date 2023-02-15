@@ -11,12 +11,9 @@
         {% block stylesheets %} {% endblock %}
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
         
-
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
         {% block javascripts %} {% endblock %}
-        <script src="{{ asset('assets/js/scripts.js') }}" defer></script>
-        
-        
+        <script src="{{ asset('assets/js/scripts.js') }}" defer></script>    
     </head>
 
     <body>
@@ -45,9 +42,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_admin', {'_fragment' : 'permissions'}) }}">Permissions</a>
                             </li>
-                        </ul>
-                                                    
-                            
+                        </ul>                           
                     </div>
                     
                     <div class="navbar-item-custom">
@@ -65,9 +60,8 @@
        
         </header>
 
-        <div class="content">
-                
-             {% block body %}{% endblock %}
+        <div class="content">           
+             {% block body %} {% endblock %}
         </div>
 
         <footer>

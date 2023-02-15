@@ -41,9 +41,7 @@ class FranchiseController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    
                 }
-
                 $franchise->setLogo($newFilename);
             }
             $entityManager->persist($franchise);
@@ -51,7 +49,6 @@ class FranchiseController extends AbstractController
             $franchiseEmail = $franchise->getUser()->getEmail();
          
         // envoie un email     
-            
             $email = (new Email ())
                 ->from('admin@basket-fit.fr')
                 ->to($franchiseEmail,'team-tech@basket-fit.fr')
@@ -61,7 +58,6 @@ class FranchiseController extends AbstractController
             $mailer->send($email);
 
             $this->addFlash('success', 'Votre franchise à bien été inscrite.');
-
             return $this->redirectToRoute('app_admin');
         }
 

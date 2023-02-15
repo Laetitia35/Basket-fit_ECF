@@ -77,7 +77,7 @@
                 <div class="franchise card-body">
                   <h5 class="franchise card-header text-danger"> {{ franchise.name }}</h5><br>
                   <div class="logo-franchise">
-                    <img src="/uploads/logo/{{ franchise.logo }}" class="card-img-top" alt="{{ franchise.logo }}" style="width:200px;">
+                    <img src="/uploads/logo/{{ franchise.logo }}" class="card-img-top" alt="{{ franchise.logo }}" style="width:auto; height:200px">
                   </div>
                   <br>
                   <p class="franchise card-text">{{ franchise.description }}</p>
@@ -102,8 +102,7 @@
                     <p>{{ permission }}</p>
                     {% endfor %}
                     </div>
-                  </div>
-                    
+                  </div> 
                   <hr>
                   <a href="{{ path("app_update_franchise", {id: franchise.id}) }}" class="btn btn-success">Modifier</a>
 
@@ -263,6 +262,6 @@
       </div>
     </section>
 
-    {% block javascript %} {% endblock %}
+  {% block javascript %} {% endblock %}
 
 {% endblock %}
