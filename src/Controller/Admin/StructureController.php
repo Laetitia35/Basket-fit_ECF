@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Franchise;
-use App\Entity\Permission;
 use App\Entity\Structure;
 use App\Form\StructureType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,18 +32,13 @@ class StructureController extends AbstractController
            
             $entityManager->persist($structure);
             $entityManager->flush();
-            
-            /** 
-            * @var Franchise $franchise
-            */
 
             $structureEmail = $structure->getUser()->getEmail();
-            $franchiseEmail = $franchise->getUser()->getEmail();
-
+           
              // envoie email 
             $email = (new Email ())
                 ->from('admin@basket-fit.fr')
-                ->to($structureEmail, $franchiseEmail, 'team-tech@basket-fit.fr')
+                ->to($structureEmail, 'team-tech@basket-fit.fr')
                 -> subject ('Votre structure à été créer')
                 -> text ("Votre structure à bien été créer. Veuillez consulter vos permissions accordées à l'adresse suivante: https://basket-fit.herokuapp.com/. Vous trouverez vos identifiants et mot de passe transmis lors d'un précédent mail envoyer pour la création de votre profil utilisateur.");
 
@@ -76,17 +70,13 @@ class StructureController extends AbstractController
             $entityManager->persist($structure);
             $entityManager->flush();
 
-            /** 
-            * @var Franchise $franchise
-            */
-            $franchiseEmail = $franchise->getUser()->getEmail();
             $structureEmail = $structure->getUser()->getEmail();
 
         // envoie email 
 
         $email = (new Email ())
                 ->from('admin@basket-fit.fr')
-                ->to($franchiseEmail, $structureEmail,'team-tech@basket-fit.fr')
+                ->to( $structureEmail,'team-tech@basket-fit.fr')
                 -> subject ('Votre structure à été modifier')
                 -> text ("Votre structure à bien été modifier. Veuillez consulter les modifications effectuer à l'adresse suivante: https://basket-fit.herokuapp.com/.");
 

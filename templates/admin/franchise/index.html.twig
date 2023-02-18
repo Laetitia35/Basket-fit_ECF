@@ -11,7 +11,9 @@
     {{ form_row(form.Name) }}
     {{ form_row(form.Logo) }}
     {{ form_row(form.Description) }}
-    {{ form_row(form.Actif) }}
+    <div class="d-flex justify-content-start">
+        {{ form_row(form.Actif) }}
+    </div>
     {{ form_row(form.User) }}
     {{ form_row(form.permissions) }}
     {{ form_row(form.submit) }}

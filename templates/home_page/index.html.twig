@@ -79,8 +79,7 @@
       <div class="row">
       {% for structure in structures %}
         {% if app.user.id == structure.user.id %}
-          {#% elseif app.user.id == structure.franchise.id %#}
-        
+
           <div class="col-md-6">
             <div class="card text-center">
               <div class="card-body">
@@ -116,6 +115,42 @@
             </div>
           </div>
        
+          {% endif %}
+          {% if app.user.id == structure.franchise.user.id %}
+          <div class="col-md-6">
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card card-header text-danger">{{ structure.name }}</h5><br>
+                <span> Adresse : {{structure.adress}}<br>{{structure.codePostal}} {{structure.city}}<br>{{structure.phoneNumber}}
+                </span>
+                <hr>
+                <p class="card-text">{{ structure.description }}</p>
+                <strong>
+                  <p class="card-text text-primary">Responsable de la structure : {{ structure.user }}</p>
+                  <p> contact : {{ structure.user.email}} <br> {{ structure.user.phoneNumber}} </p></strong>
+                <strong>
+                  <p class="card-text text-success">Franchise de la structure : {{ structure.franchise }}<br> Responsable de la franchise : {{structure.franchise.user}}</p>
+                </strong>
+                
+                <br>
+                <div class="form-check form-switch">
+                  {% if (structure.actif)  ? "1" %}
+                        <button type="button" class="btn btn-success" data-id= "{{structure.id}}">Actif</button>  
+                    {% else %}
+                         <button type="button" class="btn btn-danger" data-id="{{structure.id}}">Desactiver</button>
+                  {% endif %}
+                </div>
+                <hr>
+                <strong>
+                  <p class="card-text bg-warning">Les Permissions de la structure :</p>
+                </strong> <br>
+                {% for permission in structure.permissions %}
+                    <p>{{ permission }}</p>
+                {% endfor %}
+                <hr>
+              </div>
+            </div>
+          </div>
           {% endif %}
       {% endfor %}  
       </div>

@@ -15,7 +15,9 @@
             label: 'Mot de passe à saisir :'
         }) }}
         <div class="alert alert-danger">{{ generator }}</div>
+        <div class="d-flex justify-content-start">
         {{ form_row(registrationForm.actif) }}
+        </div>
         {{ form_row(registrationForm.role) }}
         {{ form_row(registrationForm.agreeTerms, {
             label: "J'accepte les mentions légales"

@@ -1,6 +1,6 @@
 // admin activer btn franchise  
 
-window.onload = () => {
+/*window.onload = () => {
     let active_franchise = document.querySelectorAll("[id=franchise_active]");
     for (let button of active_franchise) {
         button.addEventListener("click", function() {
@@ -22,7 +22,7 @@ window.onload = () => {
                 });
         });
     }
-}
+}*/
 
 // admin activer btn structure
 
